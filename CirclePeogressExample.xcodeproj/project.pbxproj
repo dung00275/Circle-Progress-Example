@@ -14,6 +14,8 @@
 		B643EB1D1CE227C300878DEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B643EB1B1CE227C300878DEE /* LaunchScreen.storyboard */; };
 		B643EB281CE227C300878DEE /* CirclePeogressExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643EB271CE227C300878DEE /* CirclePeogressExampleTests.swift */; };
 		B643EB331CE227C300878DEE /* CirclePeogressExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643EB321CE227C300878DEE /* CirclePeogressExampleUITests.swift */; };
+		B643EB411CE227DE00878DEE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643EB401CE227DE00878DEE /* CircleView.swift */; };
+		B643EB451CE22D5E00878DEE /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643EB441CE22D5E00878DEE /* CircleLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		B643EB2E1CE227C300878DEE /* CirclePeogressExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CirclePeogressExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B643EB321CE227C300878DEE /* CirclePeogressExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirclePeogressExampleUITests.swift; sourceTree = "<group>"; };
 		B643EB341CE227C300878DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B643EB401CE227DE00878DEE /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		B643EB441CE22D5E00878DEE /* CircleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				B643EB191CE227C300878DEE /* Assets.xcassets */,
 				B643EB1B1CE227C300878DEE /* LaunchScreen.storyboard */,
 				B643EB1E1CE227C300878DEE /* Info.plist */,
+				B643EB401CE227DE00878DEE /* CircleView.swift */,
+				B643EB441CE22D5E00878DEE /* CircleLayer.swift */,
 			);
 			path = CirclePeogressExample;
 			sourceTree = "<group>";
@@ -256,8 +262,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B643EB411CE227DE00878DEE /* CircleView.swift in Sources */,
 				B643EB151CE227C300878DEE /* ViewController.swift in Sources */,
 				B643EB131CE227C300878DEE /* AppDelegate.swift in Sources */,
+				B643EB451CE22D5E00878DEE /* CircleLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

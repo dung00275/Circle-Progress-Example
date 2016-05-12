@@ -127,19 +127,22 @@ public class CircleView: UIView {
         circleShape3 = createShapeOnView(lineWidth: lineWidthProgress,
                                          color: colorProgress3,
                                          roundShape: true,
-                                         progressDefault: progressLine3)
+                                         progressDefault: progressLine3,
+                                         isNeedSmallCircle: true)
         
         circleShape2 = createShapeOnView(lineWidth: lineWidthProgress,
                                          color: colorProgress2,
                                          roundShape: true,
                                          isNeedTail: false,
-                                         progressDefault: progressLine2)
+                                         progressDefault: progressLine2,
+                                         isNeedSmallCircle: true)
         
         circleShape1 = createShapeOnView(lineWidth: lineWidthProgress,
                                          color: colorProgress1,
                                          roundShape: true,
                                          isNeedTail: false,
-                                         progressDefault: progressLine1)
+                                         progressDefault: progressLine1,
+                                         isNeedSmallCircle: true)
         
         
         // Create Corner
@@ -167,20 +170,23 @@ public class CircleView: UIView {
                                      color: UIColor,
                                      roundShape : Bool = false,
                                      isNeedTail : Bool = true,
-                                     progressDefault: CGFloat = 1) -> CAShapeLayer
+                                     progressDefault: CGFloat = 1,
+                                     isNeedSmallCircle:Bool = false) -> CAShapeLayer
     {
         
         // Create Circle Center
         let shapeCenter = createShapeCircle(lineWidth: width,
                                             progressDefault: progressDefault,
                                             strokeColor: color,
-                                            roundShape: roundShape)
+                                            roundShape: roundShape,
+                                            isNeedSmallCircle: isNeedSmallCircle)
         layer.addSublayer(shapeCenter)
         
         // Create Tail
         if isNeedTail {
             let shapeTail = createTailShape(lineWidth: width,
-                                            fillColor: progressDefault == 1 ? color : UIColor.clearColor())
+                                            fillColor: progressDefault == 1 ? color : UIColor.clearColor(),
+                                            isNeedSmallCircle: isNeedSmallCircle)
             
             layer.addSublayer(shapeTail)
         }
@@ -190,7 +196,8 @@ public class CircleView: UIView {
     
     // MARK: --- Tail
     private func createTailShape(lineWidth width: CGFloat,
-                                 fillColor: UIColor) -> CAShapeLayer
+                                 fillColor: UIColor,
+                                 isNeedSmallCircle:Bool = false) -> CAShapeLayer
     {
         let layer = CAShapeLayer()
         let radius = width * 0.5
@@ -207,7 +214,7 @@ public class CircleView: UIView {
         layer.fillColor = fillColor.CGColor
         layer.strokeColor = UIColor.clearColor().CGColor
         
-        let radiusView = self.bounds.size.width / 2 - 25
+        let radiusView = self.bounds.size.width / 2 - 25 - (isNeedSmallCircle ? (width / 3 - 2) : 0)
         
         let rotate = endAngle - width * 0.5 / radiusView + 0.01
         let x = radiusView * cos(rotate) + CGRectGetMidX(bounds)
@@ -243,10 +250,11 @@ public class CircleView: UIView {
     private func createShapeCircle(lineWidth width: CGFloat,
                                    progressDefault: CGFloat,
                                    strokeColor: UIColor,
-                                   roundShape: Bool) -> CAShapeLayer
+                                   roundShape: Bool,
+                                   isNeedSmallCircle:Bool = false) -> CAShapeLayer
     {
         let circle = CAShapeLayer()
-        let radius = self.bounds.size.width / 2 - 25
+        let radius = self.bounds.size.width / 2 - 25 - (isNeedSmallCircle ? (width / 3 - 2) : 0)
         let benzierPath = UIBezierPath(arcCenter: CGPointZero,
                                        radius: radius,
                                        startAngle: startAngle,
